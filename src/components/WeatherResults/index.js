@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class WeatherResults extends Component {
-  render() {
-    return <div className="WeatherResults">WeatherResults</div>;
-  }
-}
+const WeatherResults = props => {
+  return <div className="WeatherResults">{props.error}</div>;
+};
 
 export default WeatherResults;
