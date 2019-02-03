@@ -15,7 +15,10 @@ class App extends Component {
       sunrise: "",
       sunset: "",
       temp: "",
+      tempMin: "",
+      tempMax: "",
       pressure: "",
+      humidity: "",
       wind: "",
       err: false
     };
@@ -45,7 +48,10 @@ class App extends Component {
           sunrise: data.sys.sunrise,
           sunset: data.sys.sunset,
           temp: data.main.temp,
+          tempMin: data.main.temp_min,
+          tempMax: data.main.temp_max,
           pressure: data.main.pressure,
+          humidity: data.main.humidity,
           wind: data.wind.speed,
           city: prevState.search
         }));
@@ -67,7 +73,7 @@ class App extends Component {
           submit={this.handleSubmit}
         />
 
-        <WeatherResults weather={this.state} />
+        <WeatherResults weatherResult={this.state} />
       </div>
     );
   }
