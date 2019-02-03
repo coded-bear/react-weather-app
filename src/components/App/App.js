@@ -39,7 +39,6 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log("hihi");
         this.setState(prevState => ({
           err: false,
           date: new Date().toLocaleString(),
@@ -47,7 +46,7 @@ class App extends Component {
           sunset: data.sys.sunset,
           temp: data.main.temp,
           pressure: data.main.pressure,
-          wind: data.wind,
+          wind: data.wind.speed,
           city: prevState.search
         }));
       })
@@ -68,7 +67,7 @@ class App extends Component {
           submit={this.handleSubmit}
         />
 
-        <WeatherResults error={this.state.err} />
+        <WeatherResults weather={this.state} />
       </div>
     );
   }
