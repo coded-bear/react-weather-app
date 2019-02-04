@@ -1,4 +1,5 @@
 import React from "react";
+import "./WeatherResults.css";
 
 const WeatherResults = props => {
   const {
@@ -19,33 +20,32 @@ const WeatherResults = props => {
 
   if (!err && city) {
     content = (
-      <div>
-        <h3>
-          Wyszukiwanie dla miasta: <strong>{city}</strong>
-        </h3>
-        <p>Dane dla dnia i godziny: {date}</p>
-        <p>Aktualna temperatura: {temp} &#176;C</p>
-        <p>Temperatura minimalna: {tempMin} &#176;C</p>
-        <p>Temperatura maksymalna: {tempMax} &#176;C</p>
-        <p>
-          Wschód słońca dzisiaj o{" "}
-          {new Date(sunrise * 1000).toLocaleTimeString()}
-        </p>
-        <p>
-          Zachód słońca dzisiaj o {new Date(sunset * 1000).toLocaleTimeString()}
-        </p>
-        <p>Wilgotność: {humidity}</p>
-        <p>Aktualna siła wiatru: {wind} m/s</p>
-        <p>Aktualne ciśnienie: {pressure} hPa</p>
+      <div className="WeatherContent">
+        <div className="WeatherImage">
+          <p className="WeatherDate">{date}</p>
+          <p className="WeatherCity">{city}</p>
+          <p className="WeatherTemp">{temp}&#176;</p>
+        </div>
+        <div className="WeatherDescription">
+          <p>Temperatura minimalna: {tempMin}&#176;C</p>
+          <p>Temperatura maksymalna: {tempMax}&#176;C</p>
+          <p>Wschód słońca: {new Date(sunrise * 1000).toLocaleTimeString()}</p>
+          <p>Zachód słońca: {new Date(sunset * 1000).toLocaleTimeString()}</p>
+          <p>Wilgotność powietrza: {humidity} %</p>
+          <p>Siła wiatru: {wind} m/s</p>
+          <p>Ciśnienie: {pressure} hPa</p>
+        </div>
       </div>
     );
   }
 
-  return (
-    <div className="WeatherResults">
-      {err ? `Nie mamy w bazie miasta ${city}` : content}
+  let error = (
+    <div className="WeatherError">
+      <p>Nie mamy w bazie miasta {city}</p>
     </div>
   );
+
+  return <div className="WeatherResults">{err ? error : content}</div>;
 };
 
 export default WeatherResults;

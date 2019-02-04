@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #c5e0ff;
+  font-family: "Nunito", sans-serif;
+}
+
+.App {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}

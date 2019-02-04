@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import SearchEngine from "../SearchEngine";
 import WeatherResults from "../WeatherResults";
 
+import "./App.css";
+
 const APIkey = "e9cc21a116e3570adfdafdb1760975d2";
 
 class App extends Component {
@@ -20,6 +22,7 @@ class App extends Component {
       pressure: "",
       humidity: "",
       wind: "",
+      weather: "",
       err: false
     };
   }
@@ -42,6 +45,7 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState(prevState => ({
           err: false,
           date: new Date().toLocaleString(),
@@ -65,8 +69,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>react-weather-app</h1>
-
         <SearchEngine
           value={this.state.search}
           change={this.handleChange}
