@@ -1,9 +1,8 @@
 import React, { Component } from "react";
+import "./App.css";
 
 import SearchEngine from "../SearchEngine";
 import WeatherResults from "../WeatherResults";
-
-import "./App.css";
 
 const APIkey = "e9cc21a116e3570adfdafdb1760975d2";
 
@@ -25,6 +24,20 @@ class App extends Component {
       weather: "",
       err: false
     };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <SearchEngine
+          value={this.state.search}
+          change={this.handleChange}
+          submit={this.handleSubmit}
+        />
+
+        <WeatherResults weatherResult={this.state} />
+      </div>
+    );
   }
 
   handleChange = e => {
@@ -65,20 +78,6 @@ class App extends Component {
         this.setState(prevState => ({ err: true, city: prevState.search }));
       });
   };
-
-  render() {
-    return (
-      <div className="App">
-        <SearchEngine
-          value={this.state.search}
-          change={this.handleChange}
-          submit={this.handleSubmit}
-        />
-
-        <WeatherResults weatherResult={this.state} />
-      </div>
-    );
-  }
 }
 
 export default App;
