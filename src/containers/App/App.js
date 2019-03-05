@@ -1,30 +1,27 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import SearchEngine from "../SearchEngine";
-import WeatherResults from "../WeatherResults";
+import SearchEngine from "../../components/SearchEngine";
+import WeatherResults from "../../components/WeatherResults";
 
 const APIkey = "e9cc21a116e3570adfdafdb1760975d2";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: "",
-      date: new Date().toLocaleString(),
-      city: "",
-      sunrise: "",
-      sunset: "",
-      temp: "",
-      tempMin: "",
-      tempMax: "",
-      pressure: "",
-      humidity: "",
-      wind: "",
-      weather: "",
-      err: false
-    };
-  }
+  state = {
+    search: "",
+    date: new Date().toLocaleString(),
+    city: "",
+    sunrise: "",
+    sunset: "",
+    temp: "",
+    tempMin: "",
+    tempMax: "",
+    pressure: "",
+    humidity: "",
+    wind: "",
+    weather: "",
+    err: false
+  };
 
   render() {
     return (

@@ -12,7 +12,9 @@ const SearchEngine = props => {
           onChange={props.change}
           placeholder="Wyszukaj miasta..."
         />
-        <input type="submit" className="searchSubmit" value="Szukaj" />
+        <button type="submit" className="searchSubmit">
+          Szukaj
+        </button>
       </form>
     </div>
   );
