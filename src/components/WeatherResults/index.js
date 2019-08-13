@@ -39,13 +39,13 @@ const WeatherResults = props => {
     );
   }
 
-  let error = (
+  const Empty = () => (
     <div className="WeatherError">
       <p>Nie mamy w bazie miasta {city}</p>
     </div>
   );
 
-  return <div className="WeatherResults">{err ? error : content}</div>;
+  return <div className="WeatherResults">{err ? Empty : content}</div>;
 };
 
 export default WeatherResults;
